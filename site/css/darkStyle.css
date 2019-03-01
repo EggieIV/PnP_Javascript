@@ -1,0 +1,139 @@
+body {
+    font-family: "Lato", sans-serif;
+    background-color: black;
+}
+
+#contentHolder {
+    display: grid;
+
+    grid-template-areas: 'button header header header header header''menu main main main right right''menu footer footer footer footer footer';
+
+    grid-gap: 10px;
+
+    background-color: dimgrey;
+
+    padding: 3px;
+}
+
+#contentholder div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 60px;
+}
+
+.item1 {
+    grid-area: button
+}
+
+.item2 {
+    grid-area: header;
+    background-color: darkturquoise;
+}
+
+.item3 {
+    grid-area: menu;
+}
+
+.item4 {
+    grid-area: main;
+    width: 2000px;
+    height: 4000px;
+
+}
+
+.item5 {
+    grid-area: right;
+}
+
+.item6 {
+    grid-area: footer;
+}
+
+#gameTitle {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+
+.newMenuDrawer {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.newMenuDrawer a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.newMenuDrawer a:hover {
+    color: #f1f1f1;
+}
+
+.newMenuDrawer .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+
+#bottomDrawer {
+    list-style: none;
+    width: 100%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#bottomDrawer a {
+    display: inline-block;
+}
+
+
+
+#spacerDrawer {
+    display: grid;
+    height: 400px;
+    align-content: end;
+}
+
+.verticalSlider {
+    -webkit-appearance: slider-vertical;
+    background-color: aqua;
+    width: 4.9%;
+}
+
+.sidebar {
+    width: 5%;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="css/darkstyle.css">
+
+</head>
+
+<body>
+
+
+    <div id="contentHolder">
+
+        <div class="item1">
+            
+            <span style="cursor:pointer" onclick="toggleNav()">&#9776;</span>
+                            
+            
+        </div>
+
+        <div class="item2"     transform: rotate3d(1, 2, -1, 192deg);
+  background-color: pink;>Header</div>
+        <div class="item3">Menu</div>
+        <div class="item4">Main</div>
+        <div class="item5">Right</div>
+        <div class="item6">Footer</div>
+
+        <div id="menuDrawer" class="newMenuDrawer">
+
+            <div id="upperDrawer">
+
+                <a href="javascript:void(0)" class="rightbtn" onclick="changeContent('gameTitle','leftTilte')">&#8592</a>
+                                <a href="#" id="gameTitle">Gametitle</a>
+
+                <a href="javascript:void(0)" class="leftbtn" onclick="changeContent('gameTitle','rightTilte')">&#8594</a>
+
+
+                <!--<p onclick="myFunction(this, 'red')">Click me to change my text color.</p>-->
+
+            </div>
+
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+            <a href="#">Campaign</a>
+            <a href="#">Workshop</a>
+            <a href="https://3dtransforms.desandro.com/card-flip">Options</a>
+
+            <div id="spacerDrawer">
+
+            </div>
+
+            <div id="bottomDrawer">
+
+                <a href="#">Contact</a>
+                <a href="#">Datennutzung</a>
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+
+<footer>
+
+    <script src="code/main.js"></script>
+
+</footer>
+
+</html>
