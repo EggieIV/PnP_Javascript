@@ -1,29 +1,32 @@
-
 :root {
-  --main-bg-color: coral;
-  --main-txt-color: blue; 
-  --main-padding: 15px; 
+    --main-bg-color: coral;
+    --main-txt-color: blue;
+    --main-padding: 15px;
 }
 
 .container {
 
-    width: 100px;
-    height: 100px;
-    perspective: 2000px;
+    width: 200px;
+    height: 200px;
+
 
 }
 
 .plane {
     width: 200px;
     height: 200px;
-    position:absolute;
+    position: absolute;
     transform-style: preserve-3d;
     transition: transform 1s;
+    perspective: 2000px;
+    margin: 0.5px;
+    transform: translateZ(4000000px);
+    align-content: center;
 
 }
 
 .face {
-    position:absolute;
+    position: absolute;
     width: 200px;
     height: 200px;
     border: 2px solid black;
@@ -37,21 +40,25 @@
 .row {
 
     transform: translateZ(105px);
-    float: left;
-    margin: 2px;
+    margin: 0px;
+
     background: rgba(255, 255, 0, 0.1);
-    vertical-align: top;
+
+
 
 }
 
 .tile {
+    transform: translateZ(105px);
+    position:relative;
+    float: left;
+    display:flex;
     font-size: 40px;
     font-weight: bold;
     color: white;
     text-align: center;
-    margin: 2px;
-    background: rgba(0, 0, 255, 0.25);
-    display: block;
+    margin: -0.25px;
+    background: rgba(0, 0, 255, 0.2);
 
 }
 

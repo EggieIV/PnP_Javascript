@@ -42,7 +42,8 @@ function createTile(tileWidth, tileHeight, index, rowNum) {
     tile.style.width = tileWidth + "px";
     tile.style.height = tileHeight + "px";
 
-    var element = document.getElementById("Row" +rowNum);
+    //var element = document.getElementById("Row" + rowNum);
+    var element = document.getElementById("height0");
     element.appendChild(tile);
 }
 
@@ -56,9 +57,15 @@ function drawPlain(numOfTilesX, numOfTilesY) {
     var map = document.getElementById("map");
     var j = -1;
 
+    //alert(map.offsetHeight);
+
+    var tileWidth = 200  / numOfTilesY ;
+    var tileHeight = 200 / numOfTilesX ;
+
+
     for (i; i < numOfTilesX * numOfTilesY; i++) {
 
-        if ((i % numOfTilesY) == 0) {
+/*        if ((i % numOfTilesY) == 0) {
 
             var para = document.createElement("div");
             para.className = "row"
@@ -68,10 +75,11 @@ function drawPlain(numOfTilesX, numOfTilesY) {
             j++;
 
 
-        }
+        }*/
 
-        //createTile(map.width/numOfTilesY, map.height/numOfTilesX, i,j);
-        createTile(100, 100, i,j);
+
+        createTile(tileWidth, tileHeight, i, j);
+        //createTile(42, 42, i,j);
 
     }
 
