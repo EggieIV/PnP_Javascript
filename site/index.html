@@ -4,13 +4,60 @@
 <head>
 
     <link rel="stylesheet" type="text/css" href="css/darkstyle.css">
+    <link rel="stylesheet" type="text/css" href="css/menuDrawer.css">
 
 </head>
 
 <body>
 
 
-    <div id="contentHolder">
+    <div class="verticalMenuDrawer" id="menuDrawer">
+
+        <div class="titleHolder">
+
+            <a href="javascript:void(0)" class="rightbtn" onclick="changeContent('gameTitle','LT')">&#8592</a>
+            <a href="#" id="gameTitle">GT</a>
+            <a href="javascript:void(0)" class="leftbtn" onclick="changeContent('gameTitle','RT')">&#8594</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+
+
+            <!--<p onclick="myFunction(this, 'red')">Click me to change my text color.</p>-->
+
+        </div>
+
+
+        <a href="#" onmousedown="toggleDrawer('campaignDrawer')">Campaign</a>
+        <div id="campaignDrawer">
+
+            <a href="#">Singleplayer</a>
+            <a href="#">Multiplayer</a>
+            <a href="#">Campaign Editor</a>
+
+        </div>
+        <a href="#">Workshop</a>
+        <div id="workshopDrawer">
+
+        </div>
+        <a href="#">Options</a>
+        <div id="optionsDrawer">
+
+        </div>
+
+        <div id="spacerDrawer">
+
+        </div>
+
+        <div class="bottomholder">
+
+            <a href="#" display: inline-block;>Contact</a>
+            <a href="#" display: inline-block;>Datenschutz</a>
+
+        </div>
+
+
+    </div>
+
+    <div class="contentHolder">
 
         <div class="item1">
 
@@ -18,9 +65,8 @@
 
 
         </div>
-
         <div class="item2">Header</div>
-        <div class="item3">Menu</div>
+        <div class="item3">Sidebar</div>
         <div class="item4">
 
             <div class="sidebar" id="manipulator">
@@ -28,64 +74,12 @@
 
                 <input class="verticalSlider" id="centerRotation" orient="vertical" type="range" min="0" max="270" value="0" data-units="deg">
 
-
-
             </div>
-            <embed src="html/3D.html" width=90% height=90% />
-
-
+            <embed src="html/3D.html" width=1000px height=1000px  />
 
         </div>
         <div class="item5">Right</div>
         <div class="item6">Footer</div>
-
-        <div id="menuDrawer" class="newMenuDrawer">
-
-            <div id="upperDrawer">
-
-                <a href="javascript:void(0)" class="rightbtn" onclick="changeContent('gameTitle','leftTilte')">&#8592</a>
-                <a href="#" id="gameTitle">Gametitle</a>
-
-                <a href="javascript:void(0)" class="leftbtn" onclick="changeContent('gameTitle','rightTilte')">&#8594</a>
-
-
-                <!--<p onclick="myFunction(this, 'red')">Click me to change my text color.</p>-->
-
-            </div>
-
-            <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
-            <a href="#" onmousedown="toggleDrawer('campaignDrawer')">Campaign</a>
-            <div id="campaignDrawer">
-
-                <a href="#">Singleplayer</a>
-                <a href="#">Multiplayer</a>
-                <a href="#">Campaign Editor</a>
-
-            </div>
-            <a href="#">Workshop</a>
-            <div id="workshopDrawer">
-
-            </div>
-            <a href="#">Options</a>
-            <div id="optionsDrawer">
-
-            </div>
-
-            <div id="spacerDrawer">
-
-            </div>
-
-            <div id="bottomDrawer">
-
-                <a href="#" display: inline-block;>Contact</a>
-                <a href="#" display: inline-block;>Datenschutz</a>
-
-            </div>
-
-
-        </div>
-
-
 
 
     </div>
