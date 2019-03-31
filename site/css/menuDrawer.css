@@ -1,0 +1,40 @@
+.verticalMenuDrawer {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 0px;
+}
+
+.verticalMenuDrawer a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: darkgray;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+
+}
+
+.verticalMenuDrawer a:hover {
+    color: white
+}
+
+.bottomholder {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-flex;
+}
+.titleHolder {
+    display: inline-flex;
+}
