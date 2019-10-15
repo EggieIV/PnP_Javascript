@@ -89,24 +89,4 @@ var i; //global init of counter
 
 // Init Code here:
 
- /**
-  * \brief Initialisation of Drawers
-  *
-  *     this loop binds the drawers to a function which expands or closes the Drawer
-  *
-  * \param no Parameter Used
-  * \return no return value
-  *
-  *
-for (i = 0; i < collapsible.length; i++) {
-  collapsible[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var drawerContent = this.nextElementSibling;
-    if (drawerContent.style.maxHeight){
-      drawerContent.style.maxHeight = null;
-    } else {
-      drawerContent.style.maxHeight = drawerContent.scrollHeight + "px";
-    } 
-  });
-}
-*/
+//if ($.browser.mozilla) {verticalSlider.style.transform ="rotateZ(0)";}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Babylon Template</title>
+
+        <style>
+            html, body {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+            }
+			#fpsLabel {
+				position: absolute;
+				right: ﻿20px;
+				top: 20px;
+				color: #999;
+				cursor: d﻿﻿efault;
+			}
+        </style>
+
+        <script src="https://cdn.babylonjs.com/babylon.js"></script>
+        <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+    </head>
+
+   <body>
+   <div class="fpsLabel languageJS" id="fpsLabel" style="display: block;">60 fps</div>
+
+    <canvas id="renderCanvas" touch-action="none"></canvas> //touch-action="none" for best results from PEP
+
+    <script>
+        var canvas = document.getElementById("renderCanvas"); // Get the canvas element 
+        var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+
+        /******* Add the create scene function ******/
+var createScene = function () {
+   	var scene = new BABYLON.Scene(engine);
+
+	// Setup environment
+	var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 90, BABYLON.Vector3.Zero(), scene);
+	camera.lowerBetaLimit = 0.1;
+	camera.upperBetaLimit = (Math.PI / 2) * 0.9;
+	camera.lowerRadiusLimit = 30;
+	camera.upperRadiusLimit = 150;
+	camera.attachControl(canvas, true);
+
+	var light = new BABYLON.HemisphericLight("dir01", new BABYLON.Vector3(0, 1, 0), scene);
+	light.intensity = 0.1;
+
+	// spot
+	var spotLight = new BABYLON.SpotLight("spot02", new BABYLON.Vector3(30, 40, 30),
+		new BABYLON.Vector3(-1, -2, -1), 1.1, 16, scene);
+	spotLight.projectionTexture = new BABYLON.Texture("textures/co.png", scene);
+	spotLight.setDirectionToTarget(BABYLON.Vector3.Zero());
+	spotLight.intensity = 1.5;
+
+	// Ground
+	var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/heightMap.png", 100, 100, 100, 10, 0, scene, false);
+	var groundMaterial = new BABYLON.StandardMaterial("ground", scene);
+	groundMaterial.diffuseTexture = new BABYLON.Texture("textures/ground.jpg", scene);
+	groundMaterial.diffuseTexture.uScale = 6;
+	groundMaterial.diffuseTexture.vScale = 6;
+	groundMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+	ground.position.y = -2.05;
+	ground.material = groundMaterial;
+
+	// Animations
+	var alpha = 0;
+	scene.registerBeforeRender(function () {
+		spotLight.position = new BABYLON.Vector3(Math.cos(alpha) * 60, 40, Math.sin(alpha) * 60);
+		spotLight.setDirectionToTarget(BABYLON.Vector3.Zero());
+		alpha += 0.01;
+	});
+
+	return scene;
+};
+        /******* End of the create scene function ******/    
+
+        var scene = createScene(); //Call the createScene function
+
+        // Register a render loop to repeatedly render the scene
+        engine.runRenderLoop(function () { 
+                scene.render();
+				var fpsLabel = document.getElementById("fpsLabel");
+				fpsLabel.innerHTML = engine.getFps().toFixed() + " fps";
+        });
+
+        // Watch for browser/canvas resize events
+        window.addEventListener("resize", function () { 
+                engine.resize();
+        });
+    </script>
+
+   </body>
+
+</html>
