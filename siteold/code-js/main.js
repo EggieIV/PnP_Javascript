@@ -41,10 +41,7 @@ function toggleDrawer(Element) {
     
     for (var i = 0; document.getElementById(Element).childElementCount > i; i++){
         var newElement = document.getElementById(Element).childNodes()
-    }
-    
-    
-    
+    }    
 }
 
 
@@ -62,7 +59,7 @@ alert(txt);
 
 
 
-  //  var map = embed.getElementById("mybody");
+//  var map = embed.getElementById("mybody");
 
 var slider1 = document.getElementById("viewingAngle");
 

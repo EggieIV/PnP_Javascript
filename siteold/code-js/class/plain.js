@@ -22,7 +22,7 @@ function Plain(xDimension,yDimension){
     
     for(var i = this.y ;i> 0; i--){// determins the count of y 
         
-            for(var j = this.x ;j >i; j){// determins the count of X and draws tiles accordingly 
+            for(var j = this.x ;j >i; j){// determins the count of X and draws tiles accordingly in a row 
                 
                 tileArray.push(new Tile (j,i,0)); 
                 

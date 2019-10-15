@@ -1,0 +1,53 @@
+references used
+https://stackoverflow.com/questions/36331335/how-to-create-cube-with-only-html-and-css
+https://www.gamefromscratch.com/page/BabylonJS-Tutorial-Series.aspx
+https://www.youtube.com/watch?v=X_a_PyV_wt4&list=PLS9MbmO_ssyCT1KHSi1GYX73ayv_9GusY
+https://jtauber.github.io/articles/css-hexagon.html
+https://codepen.io/connormulcahey/pen/AbFjt
+
+
+https://www.w3schools.com/w3css/w3css_sidebar.asp
+https://www.w3schools.com/howto/howto_js_dropdown_sidenav.asp
+https://stackoverflow.com/questions/4938716/align-div-elements-side-by-side
+
+http://flexboxfroggy.com/#de
+http://cssgridgarden.com/#de
+
+terrain/ babylon.js /3.js/webgl2
+https://www.youtube.com/watch?v=T3T7-vdIwXU
+https://www.youtube.com/watch?v=PthAw3LIh5U
+https://www.youtube.com/watch?v=vIeQcOgMKsc
+https://www.youtube.com/watch?v=XNbtwyWh9HA
+
+https://webgl2fundamentals.org/
+
+https://www.mediaevent.de/javascript/fehler-suchen.html
+
+https://wiki.selfhtml.org/wiki/JavaScript/Variable#var
+
+https://doc.babylonjs.com/babylon101/height_map
+
+prices.1 slaves 50%
+
+prices.5 coffe 50%
+
+17 18 fur
+19 naval stock and glass
+21 tea and incense
+26 tropical wood +50
+27 ivory
+34 paper + paper -40
+36 paper +paper 35
+
+
+prices.41 incense
+
+prices.38 facetting
+
+prices.35 paper +25%
+
+institution_events.22 slaves
+
+institution_events.22 colonialism
+
+conquest_of_paradise.305 salt/ naval
