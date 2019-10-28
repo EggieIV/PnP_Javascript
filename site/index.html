@@ -1,73 +1,75 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>PnP_Javascript</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>PnP_Javascript</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-<nav id="navBar">
-    <div class="titleHolder" >
+    <nav id="navBar">
+        <div class="titleHolder">
 
-        <button class="button" onclick="changeContent('gameTitle','LT')">&#8592</button>
-        <button class="button" id="gameTitle" style="align-self:center" >Javascript</button>
-        <button class="button" style="align:flex-end" onclick="changeContent('gameTitle','RT')">&#8594</button>
-        <button class="button" style="align:flex-end" onclick="toggleNav()">&times;</button>
-
-
-        <!--<p onclick="myFunction(this, 'red')">Click me to change my text color.</p>-->
-    </div>
-	
-	<div class="drawerHolder">
-		<button class="drawer"  onclick="collapseDrawer()">Open Section 1</button>
-		<div class="drawerContent">
-		<button class="drawerButton">1</button>
-		<button class="drawerButton">2</button>
-		<button class="drawerButton">3</button>
-		</div>
-		<button class="drawer" onclick="collapseDrawer()">Open Section 2</button>
-		<div class="drawerContent">
-		<button class="drawerButton">1</button>
-		<button class="drawerButton">2</button>
-		<button class="drawerButton">3</button>
-		</div>
-		<button class="drawer" onclick="collapseDrawer()">Open Section 3</button>
-		<div class="drawerContent">
-		<button class="drawerButton">1</button>
-		<button class="drawerButton">2</button>
-		<button class="drawerButton">3</button>
-		</div>
-
-	</div>
-
-	<footer>
-		<!--<details></details>-->
-        <a href="#" display: inline-block;>Contact</a>
-        <a href="#" display: inline-block;>Datenschutz</a>
-	</footer> 
-</nav>
+            <button class="button" onclick="changeContent('gameTitle','LT')">&#8592</button>
+            <button class="button" id="gameTitle" style="align-self:center">Javascript</button>
+            <button class="button" style="align:flex-end" onclick="changeContent('gameTitle','RT')">&#8594</button>
+            <button class="button" style="align:flex-end" onclick="toggleNav()">&times;</button>
 
 
-<main>
-    <button style="cursor:pointer; grid-row: 1 / span 2; width: min-content;" class="drawerButton" onclick="toggleNav()">&#9776;</button>   
-    <div class="title" style="grid-column: 2/span2;  width:100%; background-color: aqua;">Gametitle</div>
-    <div class="subtitle" style="grid-column: 2/span2;  width:100%; background-color: aqua;">Subtitle</div>
+            <!--<p onclick="myFunction(this, 'red')">Click me to change my text color.</p>-->
+        </div>
 
-    <div class="lSidebar"> 
-        
-        <input class="verticalSlider" id="viewingAngle" type="range" min="15" max="90" value="90" data-units="deg">
+        <div class="drawerHolder">
+            <button class="drawer" onclick="collapseDrawer()">Open Section 1</button>
+            <div class="drawerContent">
+                <button class="drawerButton">1</button>
+                <button class="drawerButton">2</button>
+                <button class="drawerButton">3</button>
+            </div>
+            <button class="drawer" onclick="collapseDrawer()">Open Section 2</button>
+            <div class="drawerContent">
+                <button class="drawerButton">1</button>
+                <button class="drawerButton">2</button>
+                <button class="drawerButton">3</button>
+            </div>
+            <button class="drawer" onclick="collapseDrawer()">Open Section 3</button>
+            <div class="drawerContent">
+                <button class="drawerButton">1</button>
+                <button class="drawerButton">2</button>
+                <button class="drawerButton">3</button>
+            </div>
 
-        <input class="verticalSlider" id="centerRotation" type="range" min="0" max="270" value="0" data-units="deg">
+        </div>
 
-    </div>
-    
-    <embed id="myEmbed" src="html/3DPNP.html" width=500px height=500px  />
-    
-    <div class="item5">Right</div>
-    <div class="item6"  style="grid-column: 1/span3;  width:100%; background-color: aqua;">Footer</div>
+        <footer>
+            <!--<details></details>-->
+            <a href="#" display: inline-block;>Contact</a>
+            <a href="#" display: inline-block;>Datenschutz</a>
+        </footer>
+    </nav>
 
-</main>
+
+    <main>
+        <button style="cursor:pointer; grid-row: 1 / span 2; width: min-content;" class="drawerButton" onclick="toggleNav()">&#9776;</button>
+        <div class="title" style="grid-column: 2/span2;  width:100%;">Gametitle</div>
+        <div class="subtitle" style="grid-column: 2/span2;  width:100%;">Subtitle
+        </div>
+
+        <div class="lSidebar">
+
+            <input class="verticalSlider" id="viewingAngle" type="range" min="15" max="90" value="90" data-units="deg" onchange="alert(event.srcElement.value())">
+
+            <input class="verticalSlider" id="centerRotation" type="range" min="0" max="270" value="0" data-units="deg">
+
+        </div>
+
+        <embed id="myEmbed" src="html/3DPNP.html" width=600px height=600px />
+
+        <div class="item5">Right</div>
+        <div class="item6" style="grid-column: 1/span3;  width:100%;">Footer</div>
+
+    </main>
 
 </body>
 

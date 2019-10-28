@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        head,
+        footer {
+            height: 0px;
+        }
+
+        body,
+        html,
+        #levelContainer {
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            display: inline-table
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .tile {
+            width: 100%;
+            margin: 0.2%;
+            float: left;
+            background: rgba(255, 0, 0, 1);
+            transform: scale(0.5) 
+                perspective(500px)
+                translate3d(50%, 25%, 0);
+
+        }
+
+        .tile:hover {
+            background: rgba(255, 150, 0, 0.3);
+            transform: scale(0.7) 
+                perspective(500px)
+                translate3d(50%, 25%, 50px)
+        }
+
+    </style>
+</head>
+
+<body onload="drawPlain(30,29)">
+
+    <div id="levelContainer"></div>
+
+</body>
+
+<footer>
+    <script>
+        //why is height/width 100% not working quite right with divs without contents 
+
+        function appendDiv(name, targetElement, index, tileHeight) {
+            var template = document.createElement("div");
+            template.className = name;
+            template.id = name + index;
+            if (name == "tile") {
+
+                template.style.height = tileHeight + "px"; //solution is not dynamic
+            }
+            var element = document.getElementById(targetElement);
+            element.appendChild(template);
+        }
+
+
+        function drawPlain(numOfTilesX, numOfTilesY) {
+            var bodyHeight = document.body.clientHeight;
+            //alert(bodyHeight);
+            var rowIndex = -1;
+            for (var i = 0; i < numOfTilesX * numOfTilesY; i++) {
+
+                if ((i % numOfTilesY) == 0) {
+                    rowIndex++;
+                    appendDiv("row", "levelContainer", rowIndex, 0);
+                }
+
+                appendDiv("tile", "row" + rowIndex, i, bodyHeight / numOfTilesY); // stupid bodged solution only applies to screen
+                
+            }
+            //document.getElementById("levelcontainer").height = 200;
+
+        }
+
+    </script>
+</footer>
+
+</html>

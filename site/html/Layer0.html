@@ -41,9 +41,12 @@
     </style>
 </head>
 
-<body onload="drawPlain(30,29)">
+<body onload="drawPlain(30,30)">
+
+    <button onclick="clonePlain()">fly 5,3</button>
 
     <div id="levelContainer"></div>
+
 
 </body>
 
@@ -76,11 +79,17 @@
                 }
 
                 appendDiv("tile", "row" + rowIndex, i, bodyHeight / numOfTilesY); // stupid bodged solution only applies to screen
-                
+
             }
             //document.getElementById("levelcontainer").height = 200;
 
         }
+
+        function clonePlain() {
+            cloneNode();
+            alert("helloworld");
+        }
+
 
     </script>
 </footer>
