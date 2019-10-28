@@ -20,7 +20,7 @@
             overflow: hidden;
             height: 100%;
             width: 100%;
-            display: inline-table
+            display: inline-table;
         }
 
         .row {
@@ -32,10 +32,11 @@
             margin: 0.2%;
             float: left;
             background: rgba(255, 0, 0, 1);
+                        pointer-events: stroke !important;
             transform: scale(0.5) 
                 perspective(500px)
                 translate3d(50%, 25%, 0);
-
+            
         }
 
         .tile:hover {
@@ -43,6 +44,7 @@
             transform: scale(0.7) 
                 perspective(500px)
                 translate3d(50%, 25%, 50px)
+                
         }
 
     </style>

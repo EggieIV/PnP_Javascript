@@ -5,6 +5,76 @@
     <meta charset="UTF-8">
     <title>PnP_Javascript</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <style>
+        .canvas {
+            width: 500px;
+            height: 500px;
+            perspective: 10000px;
+            padding-top: 10%;
+            padding-bottom: 0;
+            background: black;
+        }
+
+        .container {
+            position: relative;
+            width: 80%;
+            padding-bottom: 80%;
+            margin: auto auto;
+            transform-style: preserve-3d;
+            background: rgba(150, 150, 150, 0.75);
+            transform: rotateX(0deg);
+        }
+
+        .container .face {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-origin: -10% -10%;
+        }
+
+        .north {
+            top: 2%;
+            left: 0;
+            height: 20% !important;
+            transform: rotate3d(1,0,0,-90deg);
+            background: rgba(255, 0, 0, .2);
+        }
+
+        .east {
+            top: 0;
+            left: 102%;
+            width: 20% !important;
+            transform: rotate3d(0,1,0,90deg);
+            background: rgba(255, 255, 0, .2);
+        }
+
+        .south {
+            top: 102%;
+            left: 0;
+            height: 20% !important;
+            transform: rotate3d(1,0,0,-90deg);
+            background: rgba(255, 255, 255, .2);
+        }
+
+        .west {
+            top: 0;
+            left: 2%;
+            width: 20% !important;
+            transform: rotate3d(0,1,0,90deg);
+            background: rgba(0, 0, 255, .2);
+        }
+
+        .image {
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -43,7 +113,7 @@
         </div>
 
         <footer>
-            <!--<details></details>-->
+            <!--<details>alert(event.srcElement.value)</details>-->
             <a href="#" display: inline-block;>Contact</a>
             <a href="#" display: inline-block;>Datenschutz</a>
         </footer>
@@ -58,13 +128,32 @@
 
         <div class="lSidebar">
 
-            <input class="verticalSlider" id="viewingAngle" type="range" min="15" max="90" value="90" data-units="deg" onchange="alert(event.srcElement.value())">
+            <input class="verticalSlider" id="viewingAngle" type="range" min="0" max="90" value="0" data-units="deg" onchange="document.getElementById('map').style.transform='rotateX('+ this.value +'deg)'">
 
-            <input class="verticalSlider" id="centerRotation" type="range" min="0" max="270" value="0" data-units="deg">
+            <input class="verticalSlider" id="centerRotation" type="range" min="0" max="360" value="360" data-units="deg" onchange="document.getElementById('map').style.transform='rotateZ('+ this.value +'deg)'">
 
         </div>
 
-        <embed id="myEmbed" src="html/3DPNP.html" width=600px height=600px />
+        <div class="canvas">
+            <div class="container" id="map">
+                <div class="face north"></div>
+                <div class="face east"></div>
+                <div class="face south"></div>
+                <div class="face west"></div>
+                <div class="face image">
+                    <embed src="https://i.pinimg.com/originals/81/a8/c6/81a8c61bda6bb72e88d153d02dc144b7.jpg" width=100% height=100%>
+                </div>
+                <div class="face drawings">
+                </div>
+                <div class="face overlay">
+                    <embed src="html/Layer0.html" width=100% height=100% />
+                </div>
+                <!--<div class="face overlay1" style=" pointer-events: none"><embed src="../html/Layer1.html" width=100% height=100% /></div>-->
+
+            </div>
+        </div>
+
+
 
         <div class="item5">Right</div>
         <div class="item6" style="grid-column: 1/span3;  width:100%;">Footer</div>

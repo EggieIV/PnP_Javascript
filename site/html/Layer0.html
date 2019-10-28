@@ -32,6 +32,7 @@
             margin: 0.2%;
             float: left;
             background: rgba(0, 0, 255, 0.3);
+            
         }
 
         .tile:hover {
@@ -41,9 +42,8 @@
     </style>
 </head>
 
-<body onload="drawPlain(30,30)">
+<body onload="drawPlain(30,29)">
 
-    <button onclick="clonePlain()">fly 5,3</button>
 
     <div id="levelContainer"></div>
 
@@ -86,10 +86,13 @@
         }
 
         function clonePlain() {
-            cloneNode();
+
+            var elmnt = document.getElementsByTagName("DIV")[153];
+            var cln = elmnt.cloneNode(true);
+            document.body.appendChild(cln);
+
             alert("helloworld");
         }
-
 
     </script>
 </footer>
