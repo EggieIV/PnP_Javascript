@@ -48,10 +48,10 @@
 </head>
 
 <body onload="drawPlain(30,29)">
-    <button onclick="updateFigurine('x',5)">x-5</button>
-    
-        <button onclick="updateFigurine(5,8)">5-x</button>
-    
+    <button onclick="updateFigurine('x',5,1)">x-5-1</button>
+
+    <button onclick="updateFigurine(5,'x',1)">5-x-1</button>
+
 
 
     <div id="levelContainer"></div>
@@ -112,25 +112,22 @@
             alert("success");
         }
 
-        function updateFigurine(srcIndexOrContent, destIndex, type = 0) {
+        function updateFigurine(srcIndexOrContent, destIndex, type = 0, min =0, max =724) {
             if (typeof(destIndex) != "number") {
 
-                var random = (Math.random() * (724 - 0) + 0)
+                var random = Math.round(Math.random() * (max - min) + min)
                 while (random == srcIndexOrContent) {
-                    //Math.random() * (max - min) + min
-                    destIndex = random;
+                    random = Math.round(Math.random() * (max - min) + min)
                 }
-                                   // destIndex = Math.round(random);
-                destIndex = 5;
-
+                destIndex = random;
             }
 
             if (typeof(srcIndexOrContent) == "number") {
 
                 var parentNode = document.getElementById("tile" + srcIndexOrContent);
                 if (parentNode.firstChild) {
+                    document.getElementById("tile" + srcIndexOrContent).style.background = "rgba(0, 0, 255, 0.3)";
                     var template = parentNode.removeChild(parentNode.firstChild) // kopiere child element
-                    //srcIndexOrContent = childNode;
                 }
 
             } else {
@@ -141,9 +138,8 @@
 
                 if (type == 0) {
                     template.className = "char nonPlayer"
-                   // document.getElementById("tile" + destIndex).style = background: rgba(255, 0, 0, 0.3);
                 } else {
-                    //document.getElementById("tile" + destIndex).style = background: rgba(0, 255, 0, 0.3);
+                    
                 }
                 template.className = "char player";
                 template.id = "Lucina";
@@ -151,6 +147,11 @@
             }
 
             document.getElementById("tile" + destIndex).appendChild(template);
+            if (type == 0) {
+                document.getElementById("tile" + destIndex).style.background = "rgba(255, 0, 0, 0.3)";
+            } else {
+                document.getElementById("tile" + destIndex).style.background = "rgba(0, 255, 0, 0.3)";
+            }
 
 
         }
