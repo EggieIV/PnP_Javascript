@@ -32,17 +32,22 @@
             margin: 0.2%;
             float: left;
             background: rgba(0, 0, 255, 0.3);
-            
+
         }
 
         .tile:hover {
             background: rgba(0, 150, 150, 0.3);
+        }
+        .char{
+            width: 100%;
+            height: 100%;
         }
 
     </style>
 </head>
 
 <body onload="drawPlain(30,29)">
+                    <button onclick="insertFig('x','https://66.media.tumblr.com/1b1a6f840461273875f2853edbd22534/tumblr_orb77x4Ogh1w8kmjqo1_250.png')">1</button>
 
 
     <div id="levelContainer"></div>
@@ -85,13 +90,23 @@
 
         }
 
-        function clonePlain() {
+        function insertFig(posIndex, src) {
 
-            var elmnt = document.getElementsByTagName("DIV")[153];
-            var cln = elmnt.cloneNode(true);
-            document.body.appendChild(cln);
 
-            alert("helloworld");
+            if (posIndex == 'x') {
+                posIndex = 359;
+            }
+
+            var element = document.getElementById("tile" + posIndex);
+            var template = document.createElement("embed");
+            template.className = "char";
+            template.id = "Lucina";
+            template.src =src;
+            
+            element.appendChild(template);
+
+
+                alert("success");
         }
 
     </script>
