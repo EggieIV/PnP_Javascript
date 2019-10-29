@@ -38,7 +38,8 @@
         .tile:hover {
             background: rgba(0, 150, 150, 0.3);
         }
-        .char{
+
+        .char {
             width: 100%;
             height: 100%;
         }
@@ -47,7 +48,10 @@
 </head>
 
 <body onload="drawPlain(30,29)">
-                    <button onclick="insertFig('x','https://66.media.tumblr.com/1b1a6f840461273875f2853edbd22534/tumblr_orb77x4Ogh1w8kmjqo1_250.png')">1</button>
+    <button onclick="updateFigurine('x',5)">x-5</button>
+    
+        <button onclick="updateFigurine(5,8)">5-x</button>
+    
 
 
     <div id="levelContainer"></div>
@@ -70,7 +74,6 @@
             var element = document.getElementById(targetElement);
             element.appendChild(template);
         }
-
 
         function drawPlain(numOfTilesX, numOfTilesY) {
             var bodyHeight = document.body.clientHeight;
@@ -101,12 +104,55 @@
             var template = document.createElement("embed");
             template.className = "char";
             template.id = "Lucina";
-            template.src =src;
-            
+            template.src = src;
+
             element.appendChild(template);
 
 
-                alert("success");
+            alert("success");
+        }
+
+        function updateFigurine(srcIndexOrContent, destIndex, type = 0) {
+            if (typeof(destIndex) != "number") {
+
+                var random = (Math.random() * (724 - 0) + 0)
+                while (random == srcIndexOrContent) {
+                    //Math.random() * (max - min) + min
+                    destIndex = random;
+                }
+                                   // destIndex = Math.round(random);
+                destIndex = 5;
+
+            }
+
+            if (typeof(srcIndexOrContent) == "number") {
+
+                var parentNode = document.getElementById("tile" + srcIndexOrContent);
+                if (parentNode.firstChild) {
+                    var template = parentNode.removeChild(parentNode.firstChild) // kopiere child element
+                    //srcIndexOrContent = childNode;
+                }
+
+            } else {
+                // importiere cher 
+
+                //placholder creation
+                var template = document.createElement("embed");
+
+                if (type == 0) {
+                    template.className = "char nonPlayer"
+                   // document.getElementById("tile" + destIndex).style = background: rgba(255, 0, 0, 0.3);
+                } else {
+                    //document.getElementById("tile" + destIndex).style = background: rgba(0, 255, 0, 0.3);
+                }
+                template.className = "char player";
+                template.id = "Lucina";
+                template.src = "https://66.media.tumblr.com/1b1a6f840461273875f2853edbd22534/tumblr_orb77x4Ogh1w8kmjqo1_250.png";
+            }
+
+            document.getElementById("tile" + destIndex).appendChild(template);
+
+
         }
 
     </script>
