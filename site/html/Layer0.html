@@ -47,10 +47,8 @@
     </style>
 </head>
 
-<body onload="drawPlain(30,29)">
-    <button onclick="updateFigurine('x',5,1)">x-5-1</button>
-
-    <button onclick="updateFigurine(5,'x',1)">5-x-1</button>
+<body onload="drawPlain(30,30)">
+    <!--<button onclick="updateFigurine('x',5,1)">x-5-1</button><button onclick="updateFigurine(5,'x',1)">5-x-1</button>-->
 
 
 
@@ -60,10 +58,10 @@
 </body>
 
 <footer>
-    <script>
+    <script src="../code-js/main.js">
         //why is height/width 100% not working quite right with divs without contents 
 
-        function appendDiv(name, targetElement, index, tileHeight) {
+       /* function appendDiv(name, targetElement, index, tileHeight) {
             var template = document.createElement("div");
             template.className = name;
             template.id = name + index;
@@ -91,25 +89,6 @@
             }
             //document.getElementById("levelcontainer").height = 200;
 
-        }
-
-        function insertFig(posIndex, src) {
-
-
-            if (posIndex == 'x') {
-                posIndex = 359;
-            }
-
-            var element = document.getElementById("tile" + posIndex);
-            var template = document.createElement("embed");
-            template.className = "char";
-            template.id = "Lucina";
-            template.src = src;
-
-            element.appendChild(template);
-
-
-            alert("success");
         }
 
         function updateFigurine(srcIndexOrContent, destIndex, type = 0, min =0, max =724) {
@@ -154,7 +133,9 @@
             }
 
 
-        }
+        }*/
+        
+        
 
     </script>
 </footer>

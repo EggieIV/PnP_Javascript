@@ -1,14 +1,14 @@
 // Functions here:
 
- /**
-  * \brief Toggles Navigationbar
-  *
-  *     Toggles the Css width of Navabr
-  *
-  * \param no Parameter Used
-  * \return no return value
-  *
-  */
+/**
+ * \brief Toggles Navigationbar
+ *
+ *     Toggles the Css width of Navabr
+ *
+ * \param no Parameter Used
+ * \return no return value
+ *
+ */
 function toggleNav() {
 
     var width = document.getElementById("navBar").offsetWidth;
@@ -23,40 +23,40 @@ function toggleNav() {
 }
 
 
- /**
-  * \brief Toggles Drawer
-  *
-  *     Toggles the Css height of daughter Element
-  *
-  * \param no Parameter Used
-  * \return no return value
-  *
-  */
+/**
+ * \brief Toggles Drawer
+ *
+ *     Toggles the Css height of daughter Element
+ *
+ * \param no Parameter Used
+ * \return no return value
+ *
+ */
 function collapseDrawer() {
-	//alert(event.srcElement.id);
-	var collapsible = event.srcElement; // gets executor
-	
+    //alert(event.srcElement.id);
+    var collapsible = event.srcElement; // gets executor
+
     event.srcElement.classList.toggle("active");
-	
-	var drawerContent = event.srcElement.nextElementSibling;
-    if (drawerContent.style.maxHeight){
-      drawerContent.style.maxHeight = null;
+
+    var drawerContent = event.srcElement.nextElementSibling;
+    if (drawerContent.style.maxHeight) {
+        drawerContent.style.maxHeight = null;
     } else {
-      drawerContent.style.maxHeight = drawerContent.scrollHeight + "px";
-    } 
-	
+        drawerContent.style.maxHeight = drawerContent.scrollHeight + "px";
+    }
+
 }
 
 
- /**
-  * \brief Toggles Drawer
-  *
-  *     Toggles the Css height of daughter Element
-  *
-  * \param no Parameter Used
-  * \return no return value
-  *
-  */
+/**
+ * \brief Toggles Drawer
+ *
+ *     Toggles the Css height of daughter Element
+ *
+ * \param no Parameter Used
+ * \return no return value
+ *
+ */
 function toggleNav() {
 
     var width = document.getElementById("navBar").offsetWidth;
@@ -78,6 +78,80 @@ function myFunction(elmnt, clr) {
 function changeContent(Element, newTitle) {
     document.getElementById(Element).innerHTML = newTitle;
     //alert("Hello! I am an alert box!");
+}
+
+function appendDiv(name, targetElement, index, tileHeight) {
+    var template = document.createElement("div");
+    template.className = name;
+    template.id = name + index;
+    if (name == "tile") {
+
+        template.style.height = tileHeight + "px"; //solution is not dynamic
+    }
+    var element = document.getElementById(targetElement);
+    element.appendChild(template);
+}
+
+function drawPlain(numOfTilesX, numOfTilesY) {
+    var bodyHeight = document.getElementById("levelContainer").clientHeight;
+    //alert(bodyHeight);
+    var rowIndex = -1;
+    for (var i = 0; i < numOfTilesX * numOfTilesY; i++) {
+
+        if ((i % numOfTilesY) == 0) {
+            rowIndex++;
+            appendDiv("row", "levelContainer", rowIndex, 0);
+        }
+
+        appendDiv("tile", "row" + rowIndex, i, bodyHeight / numOfTilesY); // stupid bodged solution only applies to screen
+
+    }
+    //document.getElementById("levelcontainer").height = 200;
+
+}
+
+function updateFigurine(srcIndexOrContent, destIndex, type = 0, min = 0, max = 724) {
+    if (typeof (destIndex) != "number") {
+
+        var random = Math.round(Math.random() * (max - min) + min)
+        while (random == srcIndexOrContent) {
+            random = Math.round(Math.random() * (max - min) + min)
+        }
+        destIndex = random;
+    }
+
+    if (typeof (srcIndexOrContent) == "number") {
+
+        var parentNode = document.getElementById("tile" + srcIndexOrContent);
+        if (parentNode.firstChild) {
+            document.getElementById("tile" + srcIndexOrContent).style.background = "rgba(0, 0, 255, 0.3)";
+            var template = parentNode.removeChild(parentNode.firstChild) // kopiere child element
+        }
+
+    } else {
+        // importiere cher 
+
+        //placholder creation
+        var template = document.createElement("embed");
+
+        if (type == 0) {
+            template.className = "char nonPlayer"
+        } else {
+
+        }
+        template.className = "char player";
+        template.id = "Lucina";
+        template.src = "https://66.media.tumblr.com/1b1a6f840461273875f2853edbd22534/tumblr_orb77x4Ogh1w8kmjqo1_250.png";
+    }
+
+    document.getElementById("tile" + destIndex).appendChild(template);
+    if (type == 0) {
+        document.getElementById("tile" + destIndex).style.background = "rgba(255, 0, 0, 0.3)";
+    } else {
+        document.getElementById("tile" + destIndex).style.background = "rgba(0, 255, 0, 0.3)";
+    }
+
+
 }
 
 

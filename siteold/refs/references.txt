@@ -27,6 +27,10 @@ https://wiki.selfhtml.org/wiki/JavaScript/Variable#var
 
 https://doc.babylonjs.com/babylon101/height_map
 
+https://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string/359910#359910
+
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/A_basic_ray-caster
+
 prices.41 incense
 
 prices.38 facetting
