@@ -117,9 +117,9 @@ main {
     height: 100%;
     width: 5px;
     display: grid;
-    grid-template-areas:
+   /* grid-template-areas:
         'slider1'
-        'slider2';
+        'slider2';*/
 }
 
 .verticalSlider {
@@ -191,3 +191,69 @@ main {
     width: 100%;
     height: 100%;
 }
+.char:hover{
+    transform: scale(1.5);
+}
+
+
+        .canvas {
+            width: 100%;
+            height: 100%;
+            perspective: 10000px;
+            padding-top: 10%;
+            padding-bottom: 0;
+            background: black;
+        }
+
+        .container {
+            position: relative;
+            width: 80%;
+            padding-bottom: 80%;
+            margin: auto auto;
+            transform-style: preserve-3d;
+            background: rgba(150, 150, 150, 0.75);
+            transform: rotateX(0deg);
+        }
+
+        .container .face {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-origin: -10% -10%;
+        }
+
+        .north {
+            height: 10% !important;
+            transform: rotate3d(1, 0, 0, -90deg);
+            background: rgba(255, 0, 0, .2);
+        }
+
+        .east {
+            left: 100%;
+            width: 10% !important;
+            transform: rotate3d(0, 1, 0, 90deg);
+            background: rgba(255, 255, 0, .2);
+        }
+
+        .south {
+            top: 102%;
+
+            height: 10% !important;
+            transform: rotate3d(1, 0, 0, -90deg);
+            background: rgba(255, 255, 255, .2);
+        }
+
+        .west {
+            width: 10% !important;
+            transform: rotate3d(0, 1, 0, 90deg);
+            background: rgba(0, 0, 255, .2);
+        }
+
+        .image {
+
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0, 0, 0, 0.25);
+        }

@@ -110,7 +110,7 @@ function drawPlain(numOfTilesX, numOfTilesY) {
 
 }
 
-function updateFigurine(srcIndexOrContent, destIndex, type = 0, min = 0, max = 724) {
+function updateFigurine(srcIndexOrContent, destIndex, type = 0, min = 0, max = 624) {
     if (typeof (destIndex) != "number") {
 
         var random = Math.round(Math.random() * (max - min) + min)
@@ -123,7 +123,7 @@ function updateFigurine(srcIndexOrContent, destIndex, type = 0, min = 0, max = 7
     if (typeof (srcIndexOrContent) == "number") {
 
         var parentNode = document.getElementById("tile" + srcIndexOrContent);
-        if (parentNode.firstChild) {
+        if (parentNode.firstChild) { // immer nur erstes kind aenderungsbedarf, figur by id finden und entfernen
             document.getElementById("tile" + srcIndexOrContent).style.background = "rgba(0, 0, 255, 0.3)";
             var template = parentNode.removeChild(parentNode.firstChild) // kopiere child element
         }
@@ -135,11 +135,11 @@ function updateFigurine(srcIndexOrContent, destIndex, type = 0, min = 0, max = 7
         var template = document.createElement("embed");
 
         if (type == 0) {
-            template.className = "char nonPlayer"
-        } else {
-
-        }
-        template.className = "char player";
+            template.className = "char enemy"
+        } else if (type == 1) {
+            template.className = "char unaligned"
+        } else
+            template.className = "char ally";
         template.id = "Lucina";
         template.src = "https://66.media.tumblr.com/1b1a6f840461273875f2853edbd22534/tumblr_orb77x4Ogh1w8kmjqo1_250.png";
     }
@@ -147,10 +147,11 @@ function updateFigurine(srcIndexOrContent, destIndex, type = 0, min = 0, max = 7
     document.getElementById("tile" + destIndex).appendChild(template);
     if (type == 0) {
         document.getElementById("tile" + destIndex).style.background = "rgba(255, 0, 0, 0.3)";
+    } else if (type == 1) {
+        document.getElementById("tile" + destIndex).style.background = "rgba(135, 206, 250, 0.3)";
     } else {
-        document.getElementById("tile" + destIndex).style.background = "rgba(0, 255, 0, 0.3)";
+        document.getElementById("tile" + destIndex).style.background = "rgba(0, 255,0, 0.3)";
     }
-
 
 }
 
