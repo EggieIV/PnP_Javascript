@@ -68,6 +68,7 @@
             height: 100% !important;
             background: rgba(0, 0, 0, 0.25);
         }
+
     </style>
 
 </head>
@@ -152,11 +153,13 @@
 
         <div class="item5">Right</div>
         <div class="item6" style="grid-column: 1/span3;  width:100%;">Footer
-            <input type="text" onkeydown="if (event.keyCode == 13) { alert(event.srcElement.value); readline(event.srcElement.value+event.keyCode == 13); this.form.submit(); return false; }">
+            <input type="text" onkeydown="if (event.keyCode == 13) {eval(this.value)}">
         </div>
 
     </main>
 
 </body>
 
-<script src="code-js/main.js"></script></html>
+<script src="code-js/main.js"></script>
+
+</html>
