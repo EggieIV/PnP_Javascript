@@ -14,7 +14,7 @@ function toggleNav() {
     var width = document.getElementById("navBar").offsetWidth;
     //alert(width);
 
-    if (width == 0) {
+    if (width === 0) {
         document.getElementById("navBar").style.width = "20%";
     } else {
         document.getElementById("navBar").style.width = "0";
@@ -62,7 +62,7 @@ function toggleNav() {
     var width = document.getElementById("navBar").offsetWidth;
     //alert(width);
 
-    if (width == 0) {
+    if (width === 0) {
         document.getElementById("navBar").style.width = "20%";
     } else {
         document.getElementById("navBar").style.width = "0";
@@ -84,7 +84,7 @@ function appendDiv(name, targetElement, index, tileHeight) {
     var template = document.createElement("div");
     template.className = name;
     template.id = name + index;
-    if (name == "tile") {
+    if (name === "tile") {
 
         template.style.height = tileHeight + "px"; //solution is not dynamic
     }
@@ -124,9 +124,29 @@ function updateFigurine(srcIndexOrContent, destIndex, type = 0, min = 0, max = 6
 
         var parentNode = document.getElementById("tile" + srcIndexOrContent);
         if (parentNode.firstChild) { // immer nur erstes kind aenderungsbedarf, figur by id finden und entfernen
-            document.getElementById("tile" + srcIndexOrContent).style.background = "rgba(0, 0, 255, 0.3)";
-            var template = parentNode.removeChild(parentNode.firstChild) // kopiere child element
+            
+            //!!! firstchild ist erst hinzugefuegtes element 
+            //firstchild behaves like kellerspeicher bottom down discuss if wanted 
+            
+            var template = parentNode.removeChild(parentNode.firstChild) // cut child element
         }
+        //alert(parentNode.firstChild)
+        if (parentNode.firstChild != null) { // falls noch ein child element exiatiert bestimme typ und faerbe flaeche
+            // catch non existing child
+            if (template.className === "char enemy") {
+                document.getElementById("tile" + destIndex).style.background = "rgba(255, 0, 0, 0.3)";
+            } else if (template.className === "char ally") {
+                document.getElementById("tile" + destIndex).style.background = "rgba(0, 255,0, 0.3)";
+            } else {
+                document.getElementById("tile" + destIndex).style.background = "rgba(255, 255, 0, 0.3)";
+            }
+
+
+
+        } else {
+            document.getElementById("tile" + srcIndexOrContent).style.background = "rgba(0, 0, 255, 0.3)"; // falls kein child exisitert faerbe flaeche neutral
+        }
+
 
     } else {
         // importiere cher 
@@ -134,24 +154,30 @@ function updateFigurine(srcIndexOrContent, destIndex, type = 0, min = 0, max = 6
         //placholder creation
         var template = document.createElement("embed");
 
-        if (type == 0) {
-            template.className = "char enemy"
-        } else if (type == 1) {
-            template.className = "char unaligned"
-        } else
+        if (type == 1) {
+            template.className = "char enemy";
+        } else if (type == 2) {
             template.className = "char ally";
+        } else
+            template.className = "char neutral";
         template.id = "Lucina";
         template.src = "https://66.media.tumblr.com/1b1a6f840461273875f2853edbd22534/tumblr_orb77x4Ogh1w8kmjqo1_250.png";
     }
 
     document.getElementById("tile" + destIndex).appendChild(template);
-    if (type == 0) {
+
+
+    if (template.className === "char enemy") {
         document.getElementById("tile" + destIndex).style.background = "rgba(255, 0, 0, 0.3)";
-    } else if (type == 1) {
-        document.getElementById("tile" + destIndex).style.background = "rgba(135, 206, 250, 0.3)";
-    } else {
+    } else if (template.className === "char ally") {
         document.getElementById("tile" + destIndex).style.background = "rgba(0, 255,0, 0.3)";
+    } else {
+        document.getElementById("tile" + destIndex).style.background = "rgba(255, 255, 0, 0.3)";
     }
+
+
+
+
 
 }
 
